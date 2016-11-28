@@ -76,7 +76,7 @@ The University of Texas at Austin
 
 \begin{document}
 % set frame count
-\renewcommand{\inserttotalframenumber}{53}
+\renewcommand{\inserttotalframenumber}{51}
 
 \begin{frame}
   \begin{center}
@@ -181,7 +181,7 @@ The University of Texas at Austin
   $\Downarrow$ (Verification)
   \begin{block}{Numerical Representation}
    \center
-   $\frac{d^2x}{dt^2} = f''(t) = \frac{f(t+h) - 2 f(t) + f(t-h)}{h^2}$
+   $\frac{d^2x}{dt^2} = f''(t) = \frac{f(t+h) - 2 f(t) + f(t-h)}{h^2} + \textcolor{red}{?}$
    \end{block}
  \end{center}
 \end{frame}
@@ -253,7 +253,7 @@ The University of Texas at Austin
     \begin{itemize}
      \item After subtracting the old rate from the new rate, the spreadsheet divided by their sum instead of their average
      \item The errors stemmed from a combination of copy-paste mistakes and a faulty equation created to crunch the numbers.
-     \item This error likely had the effect of muting volatility by a factor of two!!
+     \item This error had the effect of muting volatility by a factor of two!!
     \end{itemize}
   \end{block}
  
@@ -435,8 +435,8 @@ The University of Texas at Austin
   \begin{equation}
     \begin{split}
       \nonumber      
-      = & 2(Lx-x)^2 - 8(Lx-x)(Lx+x)+2(Lx+x)^2 \\
-      + & 2(Ly-y)^2 - 8(Ly-y)(Ly+y)+2(Ly+y)^2 \\
+      = & 2 (Lx-x)^2 - 8 (Lx-x)(Lx+x) + 2 (Lx+x)^2 \\
+      + & 2 (Ly-y)^2 - 8 (Ly-y)(Ly+y) + 2 (Ly+y)^2 \\
       \textcolor{red}{\neq} & \textcolor{red}{0}
     \end{split}
   \end{equation}
@@ -459,7 +459,7 @@ The University of Texas at Austin
   Let's use a 2nd order finite central difference:
   \begin{equation}
       \nonumber      
-    \phi_i'' \approx \frac{\phi_{i+1} - 2\phi_{i} + \phi_{i-1}}{h^2} + O(h^2)
+    \phi_i'' \approx \frac{\phi_{i+1} - 2\phi_{i} + \phi_{i-1}}{h^2} + \mathcal{O}(h^2)
   \end{equation}
   This requires solving the implicit system of equations: 
   \begin{equation}
@@ -823,35 +823,35 @@ The University of Texas at Austin
 
  \end{frame}
 
-%===============================================================================
-% our idea of SA
-%===============================================================================
- \begin{frame}
-   \frametitle{Completing Streamwise Velocity Specification}
+% %===============================================================================
+% % our idea of SA
+% %===============================================================================
+%  \begin{frame}
+%    \frametitle{Completing Streamwise Velocity Specification}
   
 
-  \begin{block}{Correlations}
-   \begin{itemize}
+%   \begin{block}{Correlations}
+%    \begin{itemize}
 
-    \item Friction velocity can be determined from the skin friction coefficient
+%     \item Friction velocity can be determined from the skin friction coefficient
 
-   \item The incompressible $1/7$th power law is used
-	 for the skin friction coefficient.  Thus,
-	 %
-	 \begin{equation*}\label{eq:u_05}
-	  c_{f,\texttt{inc}}(Re_x) = \textcolor{red}{C_{cf}} Re_{x}^{-1/7}
-	 \end{equation*}
+%    \item The incompressible $1/7$th power law is used
+% 	 for the skin friction coefficient.  Thus,
+% 	 %
+% 	 \begin{equation*}\label{eq:u_05}
+% 	  c_{f,\texttt{inc}}(Re_x) = \textcolor{red}{C_{cf}} Re_{x}^{-1/7}
+% 	 \end{equation*}
 	 
-   \item To complete the manufactured solution, $u^+_{eq}$ is set
-	 using the velocity profile model of Cebeci and
-	 Bradshaw (1980):
-	 %
-	 \begin{equation*}\label{eq:u_06}
-	  u_{eq}^+ = \frac{1}{\textcolor{red}{\kappa}} \log \left( 1 + \textcolor{red}{\kappa} y^+ \right) + \textcolor{red}{C_1} \left[ 1 - e^{-y^+/\textcolor{red}{\eta_1}} - \frac{y^+}{\textcolor{red}{\eta_1}} e^{-y^+ \textcolor{red}{b}} \right]
-	 \end{equation*}
-    \end{itemize}
-  \end{block}
- \end{frame}
+%    \item To complete the manufactured solution, $u^+_{eq}$ is set
+% 	 using the velocity profile model of Cebeci and
+% 	 Bradshaw (1980):
+% 	 %
+% 	 \begin{equation*}\label{eq:u_06}
+% 	  u_{eq}^+ = \frac{1}{\textcolor{red}{\kappa}} \log \left( 1 + \textcolor{red}{\kappa} y^+ \right) + \textcolor{red}{C_1} \left[ 1 - e^{-y^+/\textcolor{red}{\eta_1}} - \frac{y^+}{\textcolor{red}{\eta_1}} e^{-y^+ \textcolor{red}{b}} \right]
+% 	 \end{equation*}
+%     \end{itemize}
+%   \end{block}
+%  \end{frame}
 
 
 %===============================================================================
@@ -1520,22 +1520,22 @@ else:
 \end{block}
 \end{frame}
 
-%===============================================================================
-% NEW SLIDE: future work
-%===============================================================================
+% %===============================================================================
+% % NEW SLIDE: future work
+% %===============================================================================
 
-\begin{frame}
-  \frametitle{Future AD work}
+% \begin{frame}
+%   \frametitle{Future AD work}
 
- \begin{block}{Future Work}
-  \begin{itemize}
-   \item Automatic Latex Generation
-   \item Latex Parser -- MMS generator
-   \item Will this work with complex multiphysics?
-  \end{itemize}
- \end{block}
+%  \begin{block}{Future Work}
+%   \begin{itemize}
+%    \item Automatic Latex Generation
+%    \item Latex Parser -- MMS generator
+%    \item Will this work with complex multiphysics?
+%   \end{itemize}
+%  \end{block}
  
-\end{frame}
+% \end{frame}
 
 %===============================================================================
 % NEW SLIDE: Lab Collaboration
@@ -1555,7 +1555,7 @@ else:
     
     \begin{itemize}
       \item $y$ observations, G response matrix, $\beta$ unknowns, $\epsilon$ noise 
-      \item Three cases: calibrations of $\beta, \lambda$ and $\phi$
+      \item Must define energy norm to estimate convergence
       \item Two forms of priors: non-informative (Jeffreys) and Gaussian
     \end{itemize}
   \end{block}
@@ -1574,7 +1574,7 @@ else:
 
   \begin{block}{Release}
     \begin{itemize} 
-    \item MASA 0.44.0 current release
+    \item MASA 0.44.0 current release -- 0.50 COMING SOON
     \item \url{https://github.com/manufactured-solutions/MASA}
     \item Open source, LGPL V2.1, free
     \end{itemize}
@@ -1590,7 +1590,7 @@ else:
     \small
    \item A TRANSIENT MANUFACTURED SOLUTION FOR THE COMPRESSIBLE NAVIER-STOKES EQUATIONS WITH A POWER LAW VISCOSITY
    \item Manufactured Solutions for the Favre-Averaged Navier-Stokes Equations with Eddy-Viscosity Turbulence Models
-   \item ``A Linear Regression Framework for the Verification of Bayesian Model Calibration Algorithms'' (in prep)
+   \item ``A Linear Regression Framework for the Verification of Bayesian Model Calibration Algorithms'' (submitted to ASME VVUQ)
 
    \end{itemize}
   \end{block}
@@ -1624,9 +1624,6 @@ else:
    \frametitle{Conclusions}
 
    \begin{block}{}
-    \begin{center}
-     Thank you!
-    \end{center}
     \center{Have a well verified day.} \\
     \center{nick@ices.utexas.edu}
     \end{block}
