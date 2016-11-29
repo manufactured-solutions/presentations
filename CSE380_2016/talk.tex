@@ -76,7 +76,7 @@ The University of Texas at Austin
 
 \begin{document}
 % set frame count
-\renewcommand{\inserttotalframenumber}{51}
+\renewcommand{\inserttotalframenumber}{50}
 
 \begin{frame}
   \begin{center}
@@ -238,26 +238,26 @@ The University of Texas at Austin
 %===============================================================================
 % why we care about mms/verification
 %===============================================================================
-\begin{frame}
-  \frametitle{JP Morgan needs more verification}
-  \begin{block}{Estimating risk with computer models}
-    \begin{itemize}
-     \item JPMorgan CIO needed a new value-at-risk (VaR) model for the synthetic credit portfolio 
-     \item ''London-based quantitative expert, mathematician and model developer`` was dispatched
-     \item The model underestimated downside in portfolio
-     \item Resulted in \$6 billion in losses and another \$600 million in fines.
-    \end{itemize}
-  \end{block}
+% \begin{frame}
+%   \frametitle{JP Morgan needs more verification}
+%   \begin{block}{Estimating risk with computer models}
+%     \begin{itemize}
+%      \item JPMorgan CIO needed a new value-at-risk (VaR) model for the synthetic credit portfolio 
+%      \item ''London-based quantitative expert, mathematician and model developer`` was dispatched
+%      \item The model underestimated downside in portfolio
+%      \item Resulted in \$6 billion in losses and another \$600 million in fines.
+%     \end{itemize}
+%   \end{block}
 
-  \begin{block}{What went wrong?}
-    \begin{itemize}
-     \item After subtracting the old rate from the new rate, the spreadsheet divided by their sum instead of their average
-     \item The errors stemmed from a combination of copy-paste mistakes and a faulty equation created to crunch the numbers.
-     \item This error had the effect of muting volatility by a factor of two!!
-    \end{itemize}
-  \end{block}
+%   \begin{block}{What went wrong?}
+%     \begin{itemize}
+%      \item After subtracting the old rate from the new rate, the spreadsheet divided by their sum instead of their average
+%      \item The errors stemmed from a combination of copy-paste mistakes and a faulty equation created to crunch the numbers.
+%      \item This error had the effect of muting volatility by a factor of two!!
+%     \end{itemize}
+%   \end{block}
  
-\end{frame}
+% \end{frame}
 
 
 %===============================================================================
@@ -267,6 +267,7 @@ The University of Texas at Austin
    \frametitle{Surely those were isolated events, right?}
   \begin{block}{Other examples}
     \begin{itemize}
+    \item JPM VaR model for synthetic credit portfolio muted volatility by factor of two (\$6B in losses)
     \item Mars Surveyor (metric versus english units)
     \item Sleipner A - North Sea Oil Platform Collapse (``serious error in the finite element analysis'')
     \item Therac-25 (overdosed more than two-dozen patients with gamma radiation)
