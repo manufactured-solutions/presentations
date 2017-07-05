@@ -54,7 +54,97 @@ Advanced Micro Devices
  \end{flushright}
 %
 \end{frame}
+%
+%
+%
+%===============================================================================
+% v+v: uq slide
+%===============================================================================
+\begin{frame}
+ %\frametitle{Verification, Validation and Uncertainty Quantification}
+ \frametitle{Hello Usain my old friend}
 
+ % What does it mean to be confident in a prediction?
+ \begin{center}
+  \center
+      \begin{block}{Reality}
+       \center
+       \includegraphics[scale=0.053]{bolt.png}\\
+       \end{block}
+  $\Downarrow$ (Validation)
+      \begin{block}{Mathematical Model}
+       \center
+       $\frac{d^2x(t)}{dt^2} = \frac{F}{M}$\\
+      \end{block}
+  $\Downarrow$ (Verification)
+  \begin{block}{Numerical Representation}
+   \center
+   $\frac{d^2x}{dt^2} = f''(t) = \frac{f(t+h) - 2 f(t) + f(t-h)}{h^2} + \textcolor{red}{?}$
+   \end{block}
+ \end{center}
+\end{frame}
+%
+
+\begin{frame}
+ %\frametitle{Verification, Validation and Uncertainty Quantification}
+ \frametitle{What is Validation?}
+
+ \begin{block}{The Scientific Method}
+  \begin{itemize}
+  \item Predictive Simulation: systemic treatment of model and data uncertainties and their
+    propagation through a computational model to produce predictions
+    of quantities of interest with quantified uncertainty
+  \item Goal: use scientifically-based predictions of physical reality to make informed decisions
+    \begin{itemize}
+    \item Often, mathematical constructs (e.g., equations)
+    \end{itemize}
+    Falsifiable: if predictions are ``wrong'' model is not valid
+  \end{itemize}
+ \end{block}
+
+\end{frame}
+%
+%
+%
+\begin{frame}
+ %\frametitle{Verification, Validation and Uncertainty Quantification}
+ \frametitle{What is Validation?}
+
+ \begin{block}{Some Tough Questions in Validation}
+  \begin{itemize}
+  \item Predictive Simulation: systemic treatment of model and data uncertainties and their
+    propagation through a computational model to produce predictions
+    of quantities of interest with quantified uncertainty
+  \item Goal: use scientifically-based predictions of physical reality to make informed decisions
+    \begin{itemize}
+    \item Often, mathematical constructs (e.g., equations)
+    \end{itemize}
+    Falsifiable: if predictions are ``wrong'' model is not valid
+  \end{itemize}
+ \end{block}
+
+\end{frame}
+%
+%
+%
+%===============================================================================
+% slide 1
+\begin{frame}
+\frametitle{How close is close enough?}
+
+\begin{block}{It depends:}
+  \begin{itemize}
+   \item on your quantity of interest
+   \item on where you are predicting (extrapolation?)
+   \item on how risky the action is
+   \item how ``physics-based'' is the model
+  \end{itemize}
+\end{block}
+
+\centering
+Any validation study must involve uncertainty quantification
+
+\end{frame}
 
 %************************************************
 % New section
