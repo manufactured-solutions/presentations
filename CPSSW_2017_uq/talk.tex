@@ -302,6 +302,38 @@ Require methods to estimate both $e_h$ and $\epsilon_{h,N}$
 
 \end{frame}
 
+\begin{frame}
+\frametitle{Bayesian Richardson Extrapolation}
+
+By Bayes' theorem:
+%
+\begin{equation*}
+\underbrace{\pi \left(\avg{q}, C, p | \avg{q_h}_N\right)}_{\mathrm{Posterior}} 
+\propto 
+\underbrace{\pi \left( \avg{q}, C, p \right)}_{\mathrm{Prior}} \, 
+\underbrace{L \left(\avg{q}, C, p; \avg{q_h}_N \right)}_{\mathrm{Likelihood}}
+\end{equation*}
+%
+where
+%
+\begin{itemize}
+\item Prior depends on knowledge of the problem; we use ``broad'' priors
+\item Likelihood formed from statistical error model:
+\begin{equation*}
+L \left(\avg{q}, C, p; \avg{q_h}_N \right) = \prod_{i=1}^3 \Phi \left( \avg{q_{h_i}}_N - \avg{q} - C h_i^p; \frac{\hat{\sigma}_N^2 T_0}{N} \right).
+\end{equation*}
+where
+\begin{equation*}
+\Phi(x;s^2) = \frac{1}{\sqrt{2 \pi s^2}} \exp \left( -\,\frac{1}{2} \frac{x^2}{s^2} \right)
+\end{equation*}
+\item Note that the Gaussian assumption here is based on the extended
+  CLT given before
+\end{itemize}
+
+\end{frame}
+%
+%
+%
 \section{Results}
 
 \subsection{An Aside}
@@ -618,6 +650,104 @@ Invalid \subfloat[$\avg{u'u'}$]{\includegraphics[width=0.26\linewidth]{uu_valida
 %        \end{itemize}
 %        \end{itemize}
 % \end{frame}
+
+%===============================================================================
+\begin{frame}
+\frametitle{Buoyancy-Induced Columnar Vortices Overview}
+%
+\begin{columns}[]
+  \begin{column}{0.45\linewidth}
+   \begin{center}
+    \includegraphics[width=0.7\linewidth]{figs/Dust_devil.png}
+   \end{center}
+  \end{column}
+  %
+  \begin{column}{0.55\linewidth}
+   \begin{block}{Motivation}
+    \begin{itemize}
+     \item Engineer synthetic vortices for energy generation
+     \item Difficult to explore space experimentally
+	   \begin{itemize}
+	    \item field tests in Arizona
+	    \item alter configuration
+	    \item difficult to measure everything
+	   \end{itemize}
+     \item Probe and optimize configuration with CFD
+    \end{itemize}
+   \end{block}
+
+  \end{column}
+\end{columns}
+
+\begin{block}{Dust devil basics}
+  \begin{itemize}
+  \item Hot ground heats air by conduction
+  \item Lower density near ground $\Rightarrow$ fluid driven up by buoyancy
+  \item Can form coherent, hot, vertically oriented vortex (dust devil)
+  \end{itemize}
+\end{block}
+
+\end{frame}
+
+%
+%
+%
+%===============================================================================
+\begin{frame}
+\frametitle{Sample Configuration and Results}
+%
+\vspace{-0.1in}
+\begin{columns}
+  \begin{column}{0.32\linewidth}
+    \begin{block}{Scenario}
+    Wind: $3$ m/s\\
+    Thermal: $T_g = 73^{\circ}$C, $T_g - T_{\infty}= 30^{\circ}$C
+    \end{block}
+  \end{column}
+  \begin{column}{0.7\linewidth}
+    \begin{center}
+      \includegraphics[width=0.9\linewidth]{figs/sov_enclosure.png}
+    \end{center}
+  \end{column}
+\end{columns}
+%
+\vspace{-0.25in}
+\begin{columns}
+  \begin{column}{0.5\linewidth}
+    \begin{center}
+      \includegraphics[width=0.9\linewidth]{figs/v_field_vert_clip.png}\\
+      \vspace{-0.0in}
+      \includegraphics[width=0.9\linewidth]{figs/w_field_vert_clip.png}
+    \end{center}
+  \end{column}
+  %
+  \begin{column}{0.5\linewidth}
+    \begin{center}
+      \includegraphics[width=0.9\linewidth]{figs/data_time_hist.pdf}\\
+      Quantity of Interest: Power
+    \end{center}
+  \end{column}
+\end{columns}
+%
+\end{frame}
+
+%
+%
+%
+%===============================================================================
+\begin{frame}
+\frametitle{Bayesian Richardson Extrapolation Results}
+%
+\begin{center}
+\includegraphics[width=0.7\linewidth]{figs/joint_post.pdf}
+\end{center}
+%
+\end{frame}
+%
+%
+%
+
+
 
  \begin{frame}
    \frametitle{Conclusions}
