@@ -74,7 +74,7 @@ Using Manufactured Solutions}
 
 \begin{document}
 % set frame count
-\renewcommand{\inserttotalframenumber}{50}
+\renewcommand{\inserttotalframenumber}{53}
 
 \begin{frame}
   \begin{center}
@@ -1494,6 +1494,76 @@ else:
 \end{frame}
 
 %===============================================================================
+% NEW SLIDE: complex numbers
+%===============================================================================
+\begin{frame}
+\frametitle{Review: Complex Numbers}
+
+\begin{itemize}
+\item A new element $i$
+
+\item Take the quotient with $i^2 \equiv -1$
+\[\Complex[\Reals] \equiv \left\{a + b i: a,b \in \Reals\right\}\]
+\item Arithmetic:
+\end{itemize}
+\begin{align*}
+(a+b i) + (c+d i) &= ((a+c) + (b+d) i) \\
+(a+b i) - (c+d i) &= ((a+c) - (b+d) i) \\
+(a+b i) \times (c+d i) &= (ac) + ad i + bc i + bd i^2 \\
+                              &= ((ac) + (ad+bc)i - (bd))
+\end{align*}
+\end{frame}
+
+
+%===============================================================================
+% NEW SLIDE: AD dual numbers
+%===============================================================================
+\begin{frame}
+\frametitle{``Dual Numbers'' - [Clifford 1873],[Study 1891]} 
+
+\begin{itemize}
+\item A new element $\epsilon$
+\item Closed under addition and multiplication:
+\[\left\{\sum_{i=0}^{m} a_i \epsilon^i: a_i \in \Reals, m < \infty\right\}\]
+\item Take the quotient with $\epsilon^2 \equiv 0$
+\[\Duals[\Reals] \equiv \left\{a + b \epsilon: a,b \in \Reals\right\}\]
+\item Used with quaternions to represent rotations and translations
+\item Arithmetic:
+\end{itemize}
+\begin{align*}
+(a+b\epsilon) + (c+d\epsilon) &= ((a+c) + (b+d)\epsilon) \\
+(a+b\epsilon) - (c+d\epsilon) &= ((a+c) - (b+d)\epsilon) \\
+(a+b\epsilon) \times (c+d\epsilon) &= (ac) + ad\epsilon + bc\epsilon + bd\epsilon^2 \\
+                              &= ((ac) + (ad+bc)\epsilon)
+\end{align*}
+\end{frame}
+
+%===============================================================================
+% NEW SLIDE
+%===============================================================================
+\begin{frame}
+\frametitle{``Hyper-Dual Numbers''}
+ \begin{itemize}
+  \item With $\epsilon_1^2 \equiv \epsilon_2^2 \equiv 0 \equiv (\epsilon_1
+	\epsilon_2)^2 = 0$
+	
+  \item Where $X \equiv x + \epsilon_1 + \epsilon_2$, we find:
+ \end{itemize}
+ \[ f(X) = f(x) + f'(x) \epsilon_1 + f'(x) \epsilon_2 + f''(x) \epsilon_1 \epsilon_2 \]
+
+ \begin{itemize}
+  \item The Taylor series truncates exactly at the second-derivative term
+  \item Using hyper-dual numbers results in first- and second-derivative
+	calculations that are exact, regardless of step size
+  \item Methods for computing exact higher derivatives can be created by
+	using more non-real parts ($\epsilon_3$, for instance)
+  \begin{itemize}
+   \item Accomplished using Templates in C++
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+%===============================================================================
 % NEW SLIDE: euler in masa
 %===============================================================================
 \begin{frame}[fragile]
@@ -1579,7 +1649,7 @@ else:
 
   \begin{block}{Release}
     \begin{itemize} 
-    \item MASA 0.44.0 current release -- 0.50 COMING SOON
+    \item MASA 0.50.0 current release
     \item \url{https://github.com/manufactured-solutions/MASA}
     \item Open source, LGPL V2.1, free
     \end{itemize}
@@ -1800,50 +1870,6 @@ Consider the full 3D Navier-Stokes energy equation:
 \end{block}
 \end{frame}
 
-%===============================================================================
-% NEW SLIDE: complex numbers
-%===============================================================================
-\begin{frame}
-\frametitle{Review: Complex Numbers}
-
-\begin{itemize}
-\item A new element $i$
-
-\item Take the quotient with $i^2 \equiv -1$
-\[\Complex[\Reals] \equiv \left\{a + b i: a,b \in \Reals\right\}\]
-\item Arithmetic:
-\end{itemize}
-\begin{align*}
-(a+b i) + (c+d i) &= ((a+c) + (b+d) i) \\
-(a+b i) - (c+d i) &= ((a+c) - (b+d) i) \\
-(a+b i) \times (c+d i) &= (ac) + ad i + bc i + bd i^2 \\
-                              &= ((ac) + (ad+bc)i - (bd))
-\end{align*}
-\end{frame}
-
-
-%===============================================================================
-% NEW SLIDE: AD dual numbers
-%===============================================================================
-\begin{frame}
-\frametitle{``Dual Numbers'' - [Clifford 1873],[Study 1891]} 
-
-\begin{itemize}
-\item A new element $\epsilon$
-\item Closed under addition and multiplication:
-\[\left\{\sum_{i=0}^{m} a_i \epsilon^i: a_i \in \Reals, m < \infty\right\}\]
-\item Take the quotient with $\epsilon^2 \equiv 0$
-\[\Duals[\Reals] \equiv \left\{a + b \epsilon: a,b \in \Reals\right\}\]
-\item Used with quaternions to represent rotations and translations
-\item Arithmetic:
-\end{itemize}
-\begin{align*}
-(a+b\epsilon) + (c+d\epsilon) &= ((a+c) + (b+d)\epsilon) \\
-(a+b\epsilon) - (c+d\epsilon) &= ((a+c) - (b+d)\epsilon) \\
-(a+b\epsilon) \times (c+d\epsilon) &= (ac) + ad\epsilon + bc\epsilon + bd\epsilon^2 \\
-                              &= ((ac) + (ad+bc)\epsilon)
-\end{align*}
-\end{frame}
 
 %===============================================================================
 % NEW SLIDE: hyperdual
@@ -1869,31 +1895,6 @@ Consider the full 3D Navier-Stokes energy equation:
 (ae) + (af+be)\epsilon_1 + (ag+ce)\epsilon_2 + (ah+de+bg+cf)\epsilon_1\epsilon_2 & 
 \end{align*}
 
-\end{frame}
-
-%===============================================================================
-% NEW SLIDE
-%===============================================================================
-\begin{frame}
-\frametitle{``Hyper-Dual Numbers''}
- \begin{itemize}
-  \item With $\epsilon_1^2 \equiv \epsilon_2^2 \equiv 0 \equiv (\epsilon_1
-	\epsilon_2)^2 = 0$
-	
-  \item Where $X \equiv x + \epsilon_1 + \epsilon_2$, we find:
- \end{itemize}
- \[ f(X) = f(x) + f'(x) \epsilon_1 + f'(x) \epsilon_2 + f''(x) \epsilon_1 \epsilon_2 \]
-
- \begin{itemize}
-  \item The Taylor series truncates exactly at the second-derivative term
-  \item Using hyper-dual numbers results in first- and second-derivative
-	calculations that are exact, regardless of step size
-  \item Methods for computing exact higher derivatives can be created by
-	using more non-real parts ($\epsilon_3$, for instance)
-  \begin{itemize}
-   \item Accomplished using Templates in C++
-  \end{itemize}
- \end{itemize}
 \end{frame}
 
 \end{document}
