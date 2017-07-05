@@ -62,17 +62,15 @@
 \newcommand{\checkm}{\color{pecos2}\Checkmark}
 
 
-\date{Nov. 29th, 2016}
-\author[Nicholas Malaya]{Nicholas Malaya \& Chris Simmons
+\date{July 6th, 2017}
+\author[Nicholas Malaya]{Nicholas Malaya
 $~$ \\
 {\small
-Center for Predictive Engineering and Computational Sciences (PECOS) \\
-Institute for Computational Engineering and Sciences (ICES) \\
-The University of Texas at Austin
+AMD Research \\
+Advanced Micro Devices}
 }
-}
-\title[Software Verification]{Tools and Techniques for Scientific Software Verification
-(using Manufactured Solutions)}
+\title[Software Verification]{Scientific Software Verification\\
+Using Manufactured Solutions}
 
 \begin{document}
 % set frame count
@@ -124,9 +122,15 @@ The University of Texas at Austin
     \item Computer Aided Design (e.g. Boeing 787)
     \item Human treatment and drug discovery
     \item Societal impact (global warming yes/no?)
-    \item Disaster recovery and prediction (e.g. earthquakes, hurricanes, storm surges)
+    \item Disaster recovery and prediction 
+	  \begin{itemize}
+	   \item e.g., earthquakes, hurricanes, storm surges
+	  \end{itemize}
     \item Helping to further our understanding of the physical world
-	  (material science, supernovae)
+	  \begin{itemize}
+	   \item material science, supernovae, particle physics
+	  \end{itemize}
+
     %\item Informing a decision-making process (terror attacks)
     \item {\em Possibly getting you a degree...}
     \end{itemize}
@@ -277,7 +281,7 @@ The University of Texas at Austin
  \end{frame}
 
 %===============================================================================
-% PECOS introductions: why we care about mms/verification
+% AMD introductions: why we care about mms/verification
 %===============================================================================
 \begin{frame}
   \frametitle{Direct Numerical Simulations}
@@ -301,7 +305,7 @@ The University of Texas at Austin
 \end{frame}
 
 %===============================================================================
-% PECOS introductions: why we care about mms/verification
+% AMD introductions: why we care about mms/verification
 %===============================================================================
 \begin{frame}
   \frametitle{Direct Numerical Simulations}
@@ -1199,7 +1203,7 @@ All 65 tests passed
 % masa in pecos codes
 %===============================================================================
 %% \begin{frame}
-%%   \frametitle{MASA + PECOS Codebase Integration}
+%%   \frametitle{MASA + Codebase Integration}
 %%   \begin{columns}[c]
 %%     \begin{column}{7cm}
 %%       \begin{table}
@@ -1238,7 +1242,7 @@ All 65 tests passed
 % NEW SLIDE: table of available solutions
 %===============================================================================
 \begin{frame}
-  \frametitle{Available Solutions in MASA 0.44.0}
+  \frametitle{Available Solutions in MASA 0.50.0}
 
   \begin{table}
     \centering
@@ -1468,7 +1472,7 @@ else:
 \begin{block}{Symbolic Shortcomings}
  \begin{itemize}
   \item Even with factorization, source terms still massive
-  \item Generating manufactured solutions was a {\bf full time job} at PECOS
+  \item Generating manufactured solutions was a {\bf full time job}
   \item Everything we have discussed has been generated outside of MASA
 	\begin{itemize}
 	 \item Not thrilled with Maple, Mathematica
@@ -1774,7 +1778,7 @@ Consider the full 3D Navier-Stokes energy equation:
   \item Hierarchic decomposition is an improvement, but is it enough?
 	\begin{itemize}	 
 	 \item Even with factorization, source terms still massive
-	 \item Generating manufactured solutions was a {\bf full time job} at PECOS
+	 \item Generating manufactured solutions was a {\bf full time job}
 	\end{itemize}
   \item Everything we have discussed has been generated outside of MASA
 	\begin{itemize}
