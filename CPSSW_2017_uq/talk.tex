@@ -64,7 +64,7 @@ Advanced Micro Devices
 %===============================================================================
 % slide 1
 \begin{frame}
-\frametitle{Motivation}
+\frametitle{A clean UQ example}
 
  \begin{block}{Direct Numerical Simulation (DNS) as a Computational Laboratory}
   \begin{itemize}
@@ -220,6 +220,131 @@ Require methods to estimate both $e_h$ and $\epsilon_{h,N}$
 
 \section{Results}
 
+\subsection{An Aside}
+
+%===============================================================================
+%     MCMC -- what is it?
+%===============================================================================
+\begin{frame}
+  \frametitle{MCMC}
+
+  \begin{block}{What is it?}
+    \begin{itemize}
+    \item \textcolor{black}{M}CMC = \textcolor{black}{Markov} Chain Monte-Carlo
+    \item \textcolor{black}{Markov = Each step only depends on previous}
+    \item Chain = A series of steps
+    \item Monte-Carlo = Stochastic (i.e. random numbers)
+    \end{itemize}
+    Essentially, a method to generate random steps \textcolor{black}{correlated with the previous step}
+
+  \end{block}
+\end{frame}
+
+%===============================================================================
+%     Picture Example: reject
+%===============================================================================
+\begin{frame}
+\frametitle{Enter Metropolis-Hastings}
+\begin{block}{Intuitive Picture: Sampling a Gaussian Distribution}
+\centering
+  \includegraphics[width=3.5in]{figs/norm.pdf}
+\end{block}
+
+\end{frame}
+
+%===============================================================================
+%     picture sample one: accept
+%===============================================================================
+\begin{frame}
+\frametitle{Enter Metropolis-Hastings}
+
+\begin{block}{Intuitive Picture: Sampling a Gaussian Distribution}
+\centering
+  \includegraphics[width=3.5in]{figs/norm-acc.pdf}
+\end{block}
+
+\end{frame}
+
+%===============================================================================
+%     picture sample one: correlated
+%===============================================================================
+\begin{frame}
+\frametitle{Enter Metropolis-Hastings}
+
+\begin{block}{Intuitive Picture: Sampling a Gaussian Distribution}
+\centering
+  \includegraphics[width=3.5in]{figs/norm-corr.pdf}
+\end{block}
+
+\end{frame}
+
+%===============================================================================
+%     So... what is metropolis-hastings?
+%===============================================================================
+\begin{frame}
+\frametitle{Enter Metropolis-Hastings}
+
+\begin{block}{What is it?}
+  \begin{itemize}
+  \item Metropolis-Hastings is an MCMC method for generating these samples. 
+  \end{itemize}
+\end{block}
+
+\begin{block}{Algorithm}
+  \begin{itemize}
+  \item Start at current step ($\phi_1$)
+  \item Draw proposal: $q(\tilde \phi_2 | \phi_1) = N(\tilde \phi_2 | \phi_1, \nu^2)$
+  \item Draw from uniform: $u \sim U(0,1)$
+  \item if: $u < \frac{\pi_n(\tilde \phi_2)}{\pi_n(\phi_1)}$ ($\pi_n$ is bayesian posterior, etc.)
+    \begin{itemize}
+    \item $\phi_2 = \tilde \phi_2$
+    \end{itemize}
+  \item else: $\phi_2 = \phi_1$
+  \end{itemize}
+\end{block}
+
+\textcolor{red}{Question: How do we choose $\nu$?}
+
+\end{frame}
+%
+%
+%
+%===============================================================================
+%     Picture Example: reject
+%===============================================================================
+\begin{frame}
+\frametitle{Metropolis-Hastings Sampling: Convergence}
+
+\begin{block}{Sampling a Gamma Distribution}
+  \begin{columns}
+  \column{0.35\textwidth}
+    \includegraphics[width=2.5in]{figs/gamma.pdf}
+
+  \column{0.5\textwidth}
+  \includegraphics[width=2.5in]{figs/gamma_50k.pdf}
+  \end{columns}
+\end{block}
+
+\end{frame}
+
+
+%===============================================================================
+%     OpenMP intro
+%===============================================================================
+\begin{frame}
+\frametitle{Burn-in}
+
+\begin{block}{MCMC Chain}
+\begin{itemize}
+\item That initial guess can lead to many rejections
+\end{itemize}		  
+\centering
+  \includegraphics[width=3.5in]{figs/example.pdf}
+\end{block}
+
+\end{frame}
+
+%
 \subsection{Lorenz equations}
 %===============================================================================
 \begin{frame}
