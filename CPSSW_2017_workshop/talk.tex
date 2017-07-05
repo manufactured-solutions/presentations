@@ -61,25 +61,21 @@
 \newcommand{\itemdone}{\item[{\color{pecos2}\Checkmark}]}
 \newcommand{\checkm}{\color{pecos2}\Checkmark}
 
-\date{June 30th, 2014}
+\date{July 6th, 2017}
 \author[Nicholas Malaya]{Nicholas Malaya \\
 $~$ \\
 {\small
-Center for Predictive Engineering and Computational Sciences (PECOS) \\
-Institute for Computational Engineering and Sciences (ICES) \\
-The University of Texas at Austin
+AMD Research \\
+Advanced Micro Devices}
 }
-}
-\title[Software Verification Workshop]{Software Verification Workshop}
+\title[Software Verification Workshop]{Software Verification Workshop\\
+and Guidelines for Scientific Software Development}
 
 \begin{document}
 \begin{frame}
-  \begin{center}
-    \includegraphics[width=.8\linewidth]{grand_logo}\\
-  \end{center}
   \titlepage
   \begin{flushright}
-    \includegraphics[scale=0.1]{asc_logo}\\
+    \includegraphics[scale=0.4]{amd-research}\\
   \end{flushright}
 \end{frame}
 
@@ -91,7 +87,7 @@ The University of Texas at Austin
 % This talk is online:
  % achtung! update me
   This talk is online:
-\begin{verbatim}users.ices.utexas.edu/~nick/collaborate/lanl \end{verbatim}
+\begin{verbatim}https://github.com/manufactured-solutions/presentations/\end{verbatim}
 
   \begin{block}{Goals}
     \begin{itemize} 
@@ -103,6 +99,222 @@ The University of Texas at Austin
     \end{itemize}    
   \end{block}
 
+ \textcolor{red}{And throw in many ``software engineering'' comments}
+\end{frame}
+
+%===============================================================================
+%New Slide - The problem statement
+%===============================================================================
+\begin{frame}
+\frametitle{The Multiple Roles of a Computational Scientist} 
+
+Funding agencies typically fund {\em science} and not {\em software},  therefore: \\
+
+\begin{block}{Computational Scientists are expected to be:}
+\begin{itemize}
+\item Physicist -- addressed in curriculum
+\item Numerical Analyst -- address in curriculum
+\item Software Developer? -- seriously? 
+\end{itemize}
+\end{block}
+
+{\color{pecos2}Software Engineering} (and development \ldots) {\color{pecos2}is vital to the work we do.}
+\begin{itemize}
+\item understandable code
+\item well-documented code
+\item verifiable code
+\end{itemize}
+\begin{center}
+\small
+\fcolorbox{black}{yellow}{                                                                                                                                                        
+\begin{minipage}{0.85\textwidth}
+Software Engineering is not frequently part of the formal curriculum; thus, most scientific software
+developed in academia is unverified. Furthermore, the software developed is unable
+to ever be verified without significant time investment.
+\end{minipage}}
+\end{center}
+\end{frame}
+
+%
+%
+%
+% Nick to do
+\begin{frame}
+  \frametitle{Installing MASA locally}
+  \begin{block}{Steps for Building MASA:}
+    \begin{itemize}
+      \item Grab latest source (https://github.com/manufactured-solutions/MASA)
+	    \begin{itemize}
+	     \item git clone git@github.com:manufactured-solutions/MASA.git
+	    \end{itemize}
+%      \item Untar: tar xvfz masa-0.41.1.tar.gz 
+     \end{itemize}
+   \end{block}
+
+\begin{center}
+\small
+\fcolorbox{black}{yellow}{                                                                                                                                                        
+\begin{minipage}{0.85\textwidth}
+Key Concept: Version Control \\
+ The management of changes to documents, computer programs, large web
+ sites, and other collections of information.
+\end{minipage}}
+\end{center}
+ 
+\end{frame}
+
+%
+%
+%
+%===============================================================================
+%New Slide - Version Control
+%===============================================================================
+\begin{frame}
+\frametitle{Version Control}
+Minimum Guidelines -- Actually using version control is the first step
+
+\begin{block}{Ideal Usage}
+\begin{itemize}
+\item Put everything under version control
+\item Consider putting parts of your home directory under VC
+\item Use a consistent project structure and naming convention
+\item Commit often and in logical chunks
+\item Write meaningful commit messages
+\item Do all file operations in the VCS
+\item Set up change notifications if working with multiple people
+\end{itemize}
+\end{block}
+
+\begin{block}{Popular/Common Version Control Systems}
+\begin{itemize}
+\item Subversion - SVN (\url{http://subversion.apache.org})
+%\item \href{http://subversion.apache.org}{\em Subversion (SVN)}
+\item Git (\url{http://git-scm.com})
+\end{itemize}
+\end{block}
+\end{frame}
+
+%===============================================================================
+%New Slide - Version Control
+%===============================================================================
+\begin{frame}
+\frametitle{Version Control - Comments on Architecture}
+
+\begin{block}{Subversion}
+\begin{itemize}
+\item Adopts a {\em centralized} model 
+\item A local or network repisotory is defined (we have a large
+  central repository that is also backed up automatically); can also
+  create a repository on your own file system and back up accordingly
+  (in fact, I keep several on my Dropbox account)
+\item Local ``copies'' stored on your developement platform for you to
+  interact with (e.g. all your fine source code)
+\item Metadata stored in a .svn/ directory
+\item Includes supports for binary files
+\item Command line client is callen {\em svn} -- this is what you
+  actually use all the time
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Version Control - Comments on Architecture}
+\begin{block}{Git}
+\begin{itemize}
+\item Adopts a {\em distributed} model
+\item Intended to address some short comings identified with svn for a
+  large, distributed developer environment
+\item Very popular in the Linux community (e.g. kernel development)
+\item Excels at branching and merging
+\item No requirement to have a single master source - developers can
+  maintain their own personal branches and ``cherry-pick'' patches
+  from another developers branch
+\item Peer-to-peer pushing/pulling of code
+\item Slightly higher learning curve
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Version Control - Controlling Your Own Destiny}
+\begin{block}{Logging}
+\begin{itemize}
+\item A tremendous benefit of a VCS is maintaining a record over time
+  of every individual change
+\item This gives you, the developer, the freedom and confidence to
+  add new features, implement performance refactorizations, test alternate
+  algorithms, etc since you can always go back
+\item Traceability is key
+\item Reminder: commit early and often ({\color{pecos2} you are drastically limiting the
+  potential of a VCS to help you if you only commit when you think you
+  are done with a project})
+\end{itemize}
+\end{block}
+\end{frame}
+
+%
+% git log
+%
+\begin{frame}[fragile]
+\frametitle{Version Control - Controlling Your Own Destiny}
+
+\begin{block}{Showing Differences (git example):}
+\begin{scriptsize}
+\begin{verbatim}
+[nmalaya@eldritch CPSSW_2017_workshop]$ git log
+commit 85ba9fe18e3b7e2e741802d5efb64411295a4e62
+Author: nmalaya <nicholas.malaya@amd.com>
+Date:   Wed Jul 5 12:20:57 2017 -0500
+
+    adding figures associated with talk
+
+commit 9e19f86650962fe9d3bc82b3a0d97af30ddc6139
+Author: nmalaya <nicholas.malaya@amd.com>
+Date:   Wed Jul 5 12:20:44 2017 -0500
+
+    done with talk outline, now editing
+
+commit c32e7c41097a9e552015d6f057255593338d60cc
+Author: nmalaya <nicholas.malaya@amd.com>
+Date:   Wed Jul 5 11:06:55 2017 -0500
+
+    making spacing consistent
+\end{verbatim}
+\end{scriptsize}
+\end{block}
+\end{frame}
+
+%
+% git log
+%
+\begin{frame}[fragile]
+\frametitle{Version Control - Controlling Your Own Destiny}
+
+\begin{block}{Showing Differences (git example):}
+\begin{scriptsize}
+\begin{verbatim}
+[nmalaya@eldritch CPSSW_2017_workshop]$ git diff
+diff --git a/CPSSW_2017_workshop/talk.tex b/CPSSW_2017_workshop/talk.tex
+index fded0f8..8d28d00 100644
+--- a/CPSSW_2017_workshop/talk.tex
++++ b/CPSSW_2017_workshop/talk.tex
+@@ -61,25 +61,21 @@
+ \newcommand{\itemdone}{\item[{\color{pecos2}\Checkmark}]}
+ \newcommand{\checkm}{\color{pecos2}\Checkmark}
+ 
+-\date{June 30th, 2016}
++\date{July 6th, 2017}
+ \author[Nicholas Malaya]{Nicholas Malaya \\
+ $~$ \\
+ {\small
+-Center for Predictive Engineering and Computational Sciences (PECOS) \\
+-Institute for Computational Engineering and Sciences (ICES) \\
+-The University of Texas at Austin
++AMD Research \\
++Advanced Micro Devices}
+\end{verbatim}
+\end{scriptsize}
+\end{block}
 \end{frame}
 
 %===============================================================================
