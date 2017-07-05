@@ -317,6 +317,133 @@ index fded0f8..8d28d00 100644
 \end{block}
 \end{frame}
 
+% Nick to do
+\begin{frame}
+  \frametitle{Installing MASA locally}
+  \begin{block}{Steps for Building MASA:}
+    \begin{itemize}
+      \item Grab latest source (https://github.com/manufactured-solutions/MASA)
+	    \begin{itemize}
+	     \item git clone git@github.com:manufactured-solutions/MASA.git
+	    \end{itemize}
+%      \item Untar: tar xvfz masa-0.41.1.tar.gz 
+      \item Configure: ./configure --prefix=\$HOME/masa % what about compilers here?
+      \item Compile: make -j 2
+     \end{itemize}
+   \end{block}
+
+\begin{center}
+\small
+\fcolorbox{black}{yellow}{                                                                                                                                                        
+\begin{minipage}{0.85\textwidth}
+Key Concept: Build System
+\end{minipage}}
+\end{center}
+
+\end{frame}
+
+%
+%
+%
+%===============================================================================
+%New Slide - Build System
+%===============================================================================
+\begin{frame}
+\frametitle{Build Systems}
+
+\begin{block}{Minimum Guidelines} 
+\begin{itemize}
+\item Any build system is a good start but it's more than an alias
+\item Bash script
+\item Makefile
+\item Host specific Makefiles
+\end{itemize}
+\end{block}
+
+\begin{block}{A proper build system}
+\begin{itemize}
+\item Cross platform support
+\item Runtime checks for local functionality
+\item Supports dependencies
+\item Supports finding include files and libraries
+\item Supports parallel builds
+\end{itemize}
+\end{block}
+
+{\color{pecos2} Common build tools are Make, autoconf/automake,  CMake, SCons}
+\end{frame}
+
+%
+%
+%
+% Nick to do
+\begin{frame}
+  \frametitle{Installing MASA locally}
+  \begin{block}{Steps for Building MASA:}
+    \begin{itemize}
+      \item Grab latest source (https://github.com/manufactured-solutions/MASA)
+	    \begin{itemize}
+	     \item git clone git@github.com:manufactured-solutions/MASA.git
+	    \end{itemize}
+%      \item Untar: tar xvfz masa-0.41.1.tar.gz 
+      \item Configure: ./configure --prefix=\$HOME/masa % what about compilers here?
+      \item Compile: make -j 2
+      \item Test: make check
+     \end{itemize}
+   \end{block}
+\begin{center}
+\small
+\fcolorbox{black}{yellow}{                                                                                                                                                        
+\begin{minipage}{0.85\textwidth}
+Key Concept: Unit Testing
+\end{minipage}}
+\end{center}
+
+\end{frame}
+
+%
+%
+%
+%===============================================================================
+%New Slide - Testing
+%===============================================================================
+\begin{frame}
+\frametitle{Trust No One \ldots not even yourself}
+\begin{block}{Unit Testing}
+\begin{footnotesize}
+\begin{itemize}
+\item Tests individual units of source code 
+\item A Unit is the smallest testable part of a code
+\item Each Unit test should be independent from others
+\item Best to write the Unit and the Unit test at the same time
+\end{itemize}
+\end{footnotesize}
+\end{block}
+
+\begin{block}{Regression Testing}
+\begin{footnotesize}
+\begin{itemize}
+\item Examples, applications, unit tests, benchmark problems
+\item Catches unintended consequences of revisions
+\end{itemize}
+\end{footnotesize}
+\begin{columns}[c]
+\begin{column}{7cm}
+\begin{footnotesize}
+\begin{itemize}
+\item Test early and test often
+\item Consider automating tests 
+\end{itemize}
+\end{footnotesize}
+\end{column}
+\begin{column}{4.7cm}
+\includegraphics[width=.9\linewidth]{trust}
+\end{column}
+\end{columns}
+\end{block}
+\end{frame}
+
+
 %===============================================================================
 % refresher
 %===============================================================================
